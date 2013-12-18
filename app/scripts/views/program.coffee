@@ -7,11 +7,13 @@ class coffeeScripts.Views.ProgramView extends Backbone.View
     events:
       'click .script-link': 'openScript'
 
+    initialize: (options) ->
+      @scripts = options.model
+
     render: ->
-      data = ['Aeropress', 'Chemex', 'V60']
-      @$el.html(@template(script: data))
+      @$el.html(@template(script: @scripts.toJSON()))
       this
 
     openScript: (event) ->
-      script = event.currentTarget.id
-      Backbone.history.navigate('scripts/' + script)
+      scriptId = event.currentTarget.id
+      coffeeScripts.router.navigate('script/' + scriptId, {trigger: true})

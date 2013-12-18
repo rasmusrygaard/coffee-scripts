@@ -5,8 +5,7 @@ window.coffeeScripts =
   Routers: {}
   init: ->
     'use strict'
-    console.log 'Hello from Backbone!'
-    router = new coffeeScripts.Routers.DirectorRouter()
+    @router = new @Routers.DirectorRouter()
     Backbone.history.start({ pushState: true })
 
 $ ->
