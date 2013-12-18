@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+
+    <div class="row">
+      <div class="panel panel-default">
+
+
+      <div class="panel body">
+
+        <p class="lead">Let's play! Pick a script to get going.</p>
+
+        <ul id="scripts" class="list-group">
+          {{#each script}}
+            <li class="list-group-item">
+              <h3>
+                <a href="#" id="{{this}}" class="list-group-item-heading script-link">{{this}}</a>
+              </h3>
+            </li>
+          {{/each}}
+        </ul>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>

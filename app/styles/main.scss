@@ -1,6 +1,10 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import url(http://fonts.googleapis.com/css?family=Cookie|Yanone+Kaffeesatz:300);
+
+$brown: #8C6428;
+$script-font: 'Cookie', cursive;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -25,15 +29,18 @@ body {
 
 /* Custom page header */
 .header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 2px solid opacify($brown, 0.2);
+    text-align: center;
 }
 
 /* Make the masthead heading the same height as the navigation */
-.header h3 {
+.header h2 {
+    font-family: $script-font;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+    font-size: 35px;
 }
 
 /* Custom page footer */
@@ -88,4 +95,23 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+.headline {
+  font-family: $script-font;
+}
+
+#scripts {
+  text-align: center;
+  h3 {
+    font-size: 35px;
+    font-family: $script-font;
+  }
+}
+
+#stage {
+  margin-top: 20px;
+  p {
+    margin: 10px;
+  }
 }
