@@ -18,6 +18,8 @@ $formal-font: 'Yanone Kaffeesatz';
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: $formal-font;
+    font-size: 18px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -35,13 +37,13 @@ body {
 }
 
 /* Make the masthead heading the same height as the navigation */
-.header h2 {
+.header h1 {
     font-family: $script-font;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
-    font-size: 35px;
+    font-size: 50px;
 }
 
 /* Custom page footer */
@@ -111,18 +113,15 @@ body {
 }
 
 #program {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .timer-table {
   font-family: $formal-font;
   margin-left: auto;
   margin-right: auto;
-  td {
-    width: 40px;
-  }
   p {
-    font-size: 30px;
+    font-size: 40px;
     margin: 2px;
   }
 }
@@ -131,6 +130,10 @@ body {
   margin: 0;
 }
 
-.minutes {
+.minutes, .time-separator {
   display: none;
+}
+
+.script-item {
+  padding: 0;
 }

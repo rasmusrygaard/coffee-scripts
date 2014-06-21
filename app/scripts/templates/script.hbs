@@ -1,46 +1,26 @@
 <div class="header">
-  <h2>{{script.title}}</h2>
+  <h1>{{script.title}}</h1>
 </div>
 
 <div class="row" id="program">
-  <div class="col-xs-8 col-xs-offset-2">
+  <div class="col-xs-10 col-xs-offset-1">
 
     <div class="row">
-      <p class="lead">Start the presses! A delightful way to brew coffee.</p>
+      <p>{{script.description}}</p>
+
+      {{#if hasPrelude}}
+        <h3>Preliminaries</h3>
+
+        <ul>
+          {{#each script.prelude}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
 
       <p class="text-center" id="start-button-box">
-        <button type="button" class="btn btn-primary btn-lg" id="start-button">Begin!</button>
+        <button type="button" class="btn btn-primary btn-lg" id="start-button">Begin</button>
       </p>
-
-      <div class="panel panel-default" id="timer" style="display:none;">
-
-        <div class="panel-heading">
-
-          <table class="timer-table">
-            <tr>
-              <td class="text-right minutes">
-                <p id="minutes-time">0</p>
-              </td>
-              <td class="minutes">
-                <p id="minutes-label">minutes</p>
-              </td>
-
-              <td class="text-right seconds">
-                <p id="seconds-time">0</p>
-              </td>
-              <td class="seconds">
-                <p id="seconds-label">seconds</p>
-              </td>
-            </tr>
-          </table>
-
-        </div>
-
-        <div class="panel-body">
-          <h4>Enter:</h4>
-        </div>
-
-      </div>
 
     </div>
 
