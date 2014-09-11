@@ -19,6 +19,8 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
+    var modRewrite = require('connect-modrewrite');
+
     // configurable paths
     var yeomanConfig = {
         app: 'app',
@@ -78,6 +80,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
+                            modRewrite(['!\\.html|\\.js|\\.css|\\.png$ /index.html [L]']),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
