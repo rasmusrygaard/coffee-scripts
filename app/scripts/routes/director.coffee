@@ -40,7 +40,12 @@ class coffeeScripts.Routers.DirectorRouter extends Backbone.Router
         scenes: [
           {
             time: 60,
-            content: 'foo',
+            content: [
+              'Pour 200g of water at about 95C over the coffee',
+              'Stir 3 times',
+              'Place the handle on the Aeropress in order to prevent the water ' +
+              'from draining through the filter'
+            ],
           },
           {
             time: 10,

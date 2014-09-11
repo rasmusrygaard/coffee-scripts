@@ -18,7 +18,7 @@ class coffeeScripts.Views.PlayView extends Backbone.View
 
     sceneFoo = $('#sceneFoo')
     @script.on 'scene:enter', (scene) =>
-      sceneFoo.html(scene.content)
+      sceneFoo.html(_.map(scene.content, (content) -> "<li>#{content}</li>"))
 
     @script.on 'script:end', =>
       @stopTimer(ticker, @script.minutes, @script.seconds)
