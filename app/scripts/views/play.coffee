@@ -4,6 +4,8 @@ class coffeeScripts.Views.PlayView extends Backbone.View
 
   template: JST['app/scripts/templates/play.hbs']
 
+  timer = undefined
+  
   initialize: (options) ->
     @script = options.model
 
@@ -11,15 +13,21 @@ class coffeeScripts.Views.PlayView extends Backbone.View
     @$el.html(@template(script: @script.toJSON()))
     this
 
-  play: ->
+  play: ->    
     @showTimer()
     ticker = @runTimer()
-    console.log ticker
 
-    sceneFoo = $('#sceneFoo')
+    thisScene = $('#this-scene')
+    nextScene = $('#next-scene')
     @script.on 'scene:enter', (scene) =>
-      sceneFoo.html(_.map(scene.content, (content) -> "<li>#{content}</li>"))
+      thisScene.html(@toList(scene))
 
+    @script.on 'scene:queue', (scene) =>
+      nextScene.html(@toList(scene))
+
+    @script.on 'scene:dequeue', ->
+      nextScene.html('')
+      
     @script.on 'script:end', =>
       @stopTimer(ticker, @script.minutes, @script.seconds)
 
@@ -31,6 +39,10 @@ class coffeeScripts.Views.PlayView extends Backbone.View
     $('#start-button-box').hide()
 
   runTimer: ->
+    if PlayView.timer?
+      clearInterval(PlayView.timer)
+      @script.stop()
+    
     minutesEl = $('#minutes-time')
     secondsEl = $('#seconds-time')
 
@@ -40,7 +52,7 @@ class coffeeScripts.Views.PlayView extends Backbone.View
       [Math.floor(secondsElapsed % 60), Math.floor(secondsElapsed / 60)]
 
     firstMinute = true
-    setInterval =>
+    PlayView.timer = setInterval =>
       [seconds, minutes] = timePassed()
       has_minutes = minutes > 0
       if has_minutes && seconds < 10
@@ -59,4 +71,8 @@ class coffeeScripts.Views.PlayView extends Backbone.View
   stopTimer: (timer, finalMinutes, finalSeconds) ->
     $('#minutes-time').html("#{finalMinutes}")
     $('#seconds-time').html("#{finalSeconds}")
-    clearInterval(timer)
+    clearInterval(PlayView.timer)
+
+  toList: (scene) ->
+    return '' unless scene
+    _.map(scene.content, (content) -> "<li>#{content}</li>")
