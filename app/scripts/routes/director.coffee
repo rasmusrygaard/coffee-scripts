@@ -32,17 +32,13 @@ class coffeeScripts.Routers.DirectorRouter extends Backbone.Router
       {
         id: 1,
         title: 'Tim Wendelboe',
-        description: '<img src="/images/coffee50.svg" alt="Kiwi standing on oval">
-                This is Tim Wendelboe\'s Aeropress recipe. It is delicious.'
-        prelude: [
-          'Rinse the paper filter with running tap water for 10 seconds',
-          'Use 14 grams of freshly fine filter ground coffee (light roast)',
-        ],
+        description: 'This is Tim Wendelboe\'s Aeropress recipe. It is delicious. It gives a clean, filter-like cup.'
+        prelude: 'Rinse the paper filter with running tap water for 10 seconds',
         ingredients : {
-                coffee: "14 grams",
-                grind: "Fine Filter Ground",
-                water: "200 grams",
-                time: "20 seconds"
+          coffee: "14 grams",
+          grind: "Fine Filter Ground",
+          water: "200 grams",
+          time: "20 seconds"
         },
         scenes: [
           {
@@ -68,4 +64,35 @@ class coffeeScripts.Routers.DirectorRouter extends Backbone.Router
       { id: 3, title: 'V60' },
       { id: 4, title: 'Stumptown V60' },
       { id: 5, title: 'French Press' },
+      {
+        id: 6,
+        title: 'Blue Bottle',
+        description: 'This one is blue',
+        prelude: 'Assemble your Aeropress and place it upside down on a scale.'
+        ingredients: {
+          coffee: '15 Grams',
+          grind: 'Finer Than Filter',
+          water: '400 g, 200 F',
+          time: '1 minute'
+        },
+        scenes: [
+          {
+            time: 30,
+            content: [
+              'Pour 30g of water, gently immerse the grounds with a bamboo paddle.'
+            ]
+          },
+          {
+            time: 60,
+            content: [
+              'Pour additional 160g of water and let sit for one minute.',
+              'While waiting, run the remaining hot water through the filter.'
+            ]
+          },
+          {
+
+
+          }
+        ]
+      }
     ])
