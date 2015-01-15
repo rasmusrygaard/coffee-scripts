@@ -31,25 +31,36 @@ class coffeeScripts.Routers.DirectorRouter extends Backbone.Router
     @scripts = new coffeeScripts.Collections.ScriptsCollection([
       {
         id: 1,
-        title: 'Aeropress',
-        description: 'This is Tim Wendelboe\'s Aeropress recipe. It is delicious.'
+        title: 'Tim Wendelboe',
+        description: '<img src="/images/coffee50.svg" alt="Kiwi standing on oval">
+                This is Tim Wendelboe\'s Aeropress recipe. It is delicious.'
         prelude: [
           'Rinse the paper filter with running tap water for 10 seconds',
           'Use 14 grams of freshly fine filter ground coffee (light roast)',
         ],
+        ingredients : {
+                coffee: "14 grams",
+                grind: "Fine Filter Ground",
+                water: "200 grams",
+                time: "20 seconds"
+        },
         scenes: [
           {
-            time: 60,
+            time: 10,
             content: [
               'Pour 200g of water at about 95C over the coffee',
               'Stir 3 times',
-              'Place the handle on the Aeropress in order to prevent the water ' +
-              'from draining through the filter'
+              'Place the handle on the Aeropress in order to prevent the water from draining ' +
+              'through the filter'
             ],
           },
           {
             time: 10,
-            content: 'bar'
+            content: [
+              'Take the handle off, stir 3 times back to front',
+              'Place the handle on top of the aeropress and press the contents into a large cup ' +
+              'or pitcher by using your body weight'
+            ]
           }
         ]
       },

@@ -1,5 +1,7 @@
-<div class="header">
-  <h1>{{script.title}}</h1>
+<div class="row">
+  <div class="header">
+    <h1>{{script.title}}</h1>
+  </div>
 </div>
 
 <div class="row">
@@ -30,13 +32,21 @@
 
 </div>
 
-<div>
-  <div class="panel-body">
-    <ul id="this-scene">
-    </ul>
-    <ul id="next-scene">
-    </ul>
-  </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+    <div class="panel-body">
 
+      <ul id="this-scene">
+      </ul>
+
+      <div class="preview-container">
+          <p class="text-center"><h4>Up Next</h4></p>
+          
+          <ul id="next-scene" class="preview-scene">
+          </ul>
+      </div> 
+
+    </div>
+  </div>
 </div>
 

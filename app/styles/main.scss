@@ -1,6 +1,6 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-@import 'sass-bootstrap/lib/bootstrap';
+@import '../bower_components/sass-bootstrap/lib/bootstrap';
 @import url(http://fonts.googleapis.com/css?family=Cookie|Yanone+Kaffeesatz:300);
 
 $brown: #8C6428;
@@ -41,9 +41,9 @@ body {
     font-family: $script-font;
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 40px;
+    line-height: 20px;
     padding-bottom: 19px;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 /* Custom page footer */
@@ -110,6 +110,13 @@ body {
     font-size: 35px;
     font-family: $script-font;
   }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: $brown;  
+    }
+  }
 }
 
 #program {
@@ -121,10 +128,17 @@ body {
   margin-left: auto;
   margin-right: auto;
   p {
-    font-size: 80px;
-    margin: 2px;
+    font-size: 60px;
   }
 }
+
+@media(max-width: $screen-xs-max){
+  .timer-table p {
+    font-size: 40px;
+  }
+}
+
+
 
 #start-button {
   margin: 0;
@@ -144,4 +158,16 @@ body {
 
 #sceneFoo {
   font-size: 20px;
+}
+
+.preview-container {
+  display: none;
+}
+
+.preview-scene {
+  color: #dddddd;
+}
+
+img.recipe-icon {
+  width: 25px;
 }

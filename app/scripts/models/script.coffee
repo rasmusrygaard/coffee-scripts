@@ -29,7 +29,7 @@ class coffeeScripts.Models.ScriptModel extends Backbone.Model
       @nextScene()
     , scene.time * 1000
 
-    unless @lastScene
+    unless @allScenesPlayed()
       @queueTimer = setTimeout =>
         @trigger('scene:queue', @scenes[@index + 1])
       , (scene.time - PREVIEW_TIME) * 1000

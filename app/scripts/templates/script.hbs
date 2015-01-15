@@ -1,5 +1,7 @@
-<div class="header">
-  <h1>{{script.title}}</h1>
+<div class="row">
+  <div class="header">
+    <h1>{{script.title}}</h1>
+  </div>
 </div>
 
 <div class="row" id="program">
@@ -9,13 +11,43 @@
       <p>{{script.description}}</p>
 
       {{#if hasPrelude}}
-        <h3>Preliminaries</h3>
+        <div class="row">
+          <h3>Preliminaries</h3>
 
-        <ul>
-          {{#each script.prelude}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ul>
+          <div class="row">
+            <div class="col-xs-1 col-xs-offset-2">
+              <img src="/images/coffee.svg" class="recipe-icon">
+            </div>
+            <div class="col-xs-3">
+              <p>{{script.ingredients.coffee}}</p>
+            </div>
+
+            <div class="col-xs-1">
+              <img src="/images/grinder.svg" class="recipe-icon">
+            </div>
+            <div class="col-xs-3">
+              <p>{{script.ingredients.grind}}</p>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xs-1 col-xs-offset-2">
+              <img src="/images/water.svg" class="recipe-icon">
+            </div>
+            <div class="col-xs-3">
+              <p>{{script.ingredients.water}}</p>
+            </div>
+
+            <div class="col-xs-1">
+              <img src="/images/timer.svg" class="recipe-icon">
+            </div>
+            <div class="col-xs-3">
+              <p>{{script.ingredients.time}}</p>
+            </div>
+          </div>
+          
+        </div>
+    </div> 
       {{/if}}
 
       <p class="text-center" id="start-button-box">

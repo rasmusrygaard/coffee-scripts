@@ -19,13 +19,18 @@ class coffeeScripts.Views.PlayView extends Backbone.View
 
     thisScene = $('#this-scene')
     nextScene = $('#next-scene')
+    nextSceneContainer = $('.preview-container')
     @script.on 'scene:enter', (scene) =>
+      window.navigator.vibrate(200)
+      document.getElementById("beep-sound").play()
       thisScene.html(@toList(scene))
 
     @script.on 'scene:queue', (scene) =>
+      nextSceneContainer.show()
       nextScene.html(@toList(scene))
 
     @script.on 'scene:dequeue', ->
+      nextSceneContainer.hide()
       nextScene.html('')
       
     @script.on 'script:end', =>
@@ -66,7 +71,7 @@ class coffeeScripts.Views.PlayView extends Backbone.View
           $('.time-separator').show()
           firstMinute = false
         minutesEl.html("#{minutes}")
-    , 200
+    , 60
 
   stopTimer: (timer, finalMinutes, finalSeconds) ->
     $('#minutes-time').html("#{finalMinutes}")
