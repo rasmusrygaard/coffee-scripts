@@ -7,6 +7,7 @@ class coffeeScripts.Views.ScriptView extends Backbone.View
     events:
       "click #start-button": "begin",
       "click .home-button" : "goHome",
+      "click .fullscreen-button" : "fullscreen",
 
     initialize: (options) ->
       @script = options.model
@@ -23,3 +24,14 @@ class coffeeScripts.Views.ScriptView extends Backbone.View
 
     goHome: ->
       coffeeScripts.router.navigate("/", {trigger: true})
+
+    fullscreen: (e) ->
+      console.log(e.target)
+      $buttonEl = $(e.target).find('span')
+      $buttonEl.toggleClass('glyphicon-resize-full')
+      $buttonEl.toggleClass('glyphicon-resize-small')
+      document.cancelFullScreen = document.webkitExitFullscreen || document.mozCancelFullScreen || document.exitFullscreen;
+      if document.webkitIsFullScreen
+        document.cancelFullScreen()
+      else
+        document.documentElement.webkitRequestFullScreen()

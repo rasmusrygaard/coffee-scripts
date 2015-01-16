@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            modRewrite(['!\\.html|\\.js|\\.css|\\.png|\\.mp3|\\.svg$ /index.html [L]']),
+                            modRewrite(['!\\.html|\\.js|\\.css|\\.png|\\.mp3|\\.svg|\\.woff|\\.ttf$ /index.html [L]']),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
@@ -253,7 +253,18 @@ module.exports = function (grunt) {
                         'styles/fonts/{,*/}*.*',
                         'sounds/*.mp3',
                         '/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*'
+                        'bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*'
+                    ]
+                }]
+            },
+            all: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    flatten: true,
+                    dest: '<%= yeoman.app %>/fonts/bootstrap',
+                    src: [
+                        'bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*'
                     ]
                 }]
             }

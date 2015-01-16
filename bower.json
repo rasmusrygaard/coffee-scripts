@@ -2,7 +2,7 @@
   "name": "coffee-scripts",
   "version": "0.0.0",
   "dependencies": {
-    "sass-bootstrap": "~3.0.0",
+    "bootstrap-sass": "3.3.1",
     "jquery": "~1.9.0",
     "underscore": "~1.4.3",
     "backbone": "~1.0.0",
