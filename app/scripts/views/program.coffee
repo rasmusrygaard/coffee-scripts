@@ -11,9 +11,13 @@ class coffeeScripts.Views.ProgramView extends Backbone.View
       @scripts = options.model
 
     render: ->
+      @$el.empty();
+      @undelegateEvents();
       @$el.html(@template(script: @scripts.toJSON()))
+      @delegateEvents();
       this
 
     openScript: (event) ->
       scriptId = event.currentTarget.id
+      event.preventDefault()
       coffeeScripts.router.navigate('script/' + scriptId, {trigger: true})

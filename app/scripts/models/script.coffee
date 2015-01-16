@@ -29,7 +29,7 @@ class coffeeScripts.Models.ScriptModel extends Backbone.Model
       @nextScene()
     , scene.time * 1000
 
-    unless @allScenesPlayed()
+    unless @lastScene()
       @queueTimer = setTimeout =>
         @trigger('scene:queue', @scenes[@index + 1])
       , (scene.time - PREVIEW_TIME) * 1000
@@ -38,6 +38,9 @@ class coffeeScripts.Models.ScriptModel extends Backbone.Model
 
   allScenesPlayed: ->
     @index >= @scenes.length
+
+  lastScene: ->
+    @index == @scenes.length - 1
 
   stop: ->
     clearInterval(@timer)

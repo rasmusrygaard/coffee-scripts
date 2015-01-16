@@ -5,7 +5,8 @@ class coffeeScripts.Views.ScriptView extends Backbone.View
     template: JST['app/scripts/templates/script.hbs']
 
     events:
-      "click #start-button": "begin"
+      "click #start-button": "begin",
+      "click .home-button" : "goHome",
 
     initialize: (options) ->
       @script = options.model
@@ -20,3 +21,5 @@ class coffeeScripts.Views.ScriptView extends Backbone.View
     begin: ->
       coffeeScripts.router.navigate("script/#{@script.id}/play", {trigger: true})
 
+    goHome: ->
+      coffeeScripts.router.navigate("/", {trigger: true})
