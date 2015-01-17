@@ -13,7 +13,11 @@ class coffeeScripts.Views.ProgramView extends Backbone.View
     render: ->
       @$el.empty();
       @undelegateEvents();
-      @$el.html(@template(script: @scripts.toJSON()))
+      @$el.html(@template(
+        script: @scripts.toJSON()
+        title: 'Coffee Scripts'
+        hideBackButton: true
+      ))
       @delegateEvents();
       this
 

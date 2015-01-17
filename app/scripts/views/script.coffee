@@ -14,8 +14,9 @@ class coffeeScripts.Views.ScriptView extends Backbone.View
 
     render: ->
       @$el.html(@template({
-        script: @script.toJSON(),
+        script: @script.toJSON()
         hasPrelude: @script.get('prelude').length > 0
+        title: @script.get('title')
       }))
       this
 
