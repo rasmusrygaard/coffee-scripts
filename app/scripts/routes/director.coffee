@@ -11,24 +11,25 @@ class coffeeScripts.Routers.DirectorRouter extends Backbone.Router
     @programView ?= new coffeeScripts.Views.ProgramView({
       model: @scripts
     })
-    $('#stage').html(@programView.render().el)
+    @appView.showView(@programView)
 
   showScript: (id) ->
     script = @scripts.findWhere({id: parseInt(id)})
     scriptView = new coffeeScripts.Views.ScriptView({
       model: script
     })
-    $('#stage').html(scriptView.render().el)
+    @appView.showView(scriptView)
 
   playScript: (id) ->
     script = @scripts.findWhere({id: parseInt(id)})
     playView = new coffeeScripts.Views.PlayView({
       model: script
     })
-    $('#stage').html(playView.render().el)
+    @appView.showView(playView)
     playView.play()
 
-  initialize: ->
+  initialize: (options) ->
+    @appView = options.appView
     @scripts = new coffeeScripts.Collections.ScriptsCollection([
       {
         id: 1,

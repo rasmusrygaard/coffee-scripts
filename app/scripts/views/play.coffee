@@ -5,15 +5,19 @@ class coffeeScripts.Views.PlayView extends Backbone.View
   template: JST['app/scripts/templates/play.hbs']
 
   timer = undefined
-  
+
   initialize: (options) ->
     @script = options.model
+
+    if PlayView.timer?
+      clearInterval(PlayView.timer)
+      @script.stop()
 
   render: ->
     @$el.html(@template(script: @script.toJSON()))
     this
 
-  play: ->    
+  play: ->
     @showTimer()
     ticker = @runTimer()
 
@@ -32,7 +36,7 @@ class coffeeScripts.Views.PlayView extends Backbone.View
     @script.on 'scene:dequeue', ->
       nextSceneContainer.hide()
       nextScene.html('')
-      
+
     @script.on 'script:end', =>
       @stopTimer(ticker, @script.minutes, @script.seconds)
 
@@ -47,7 +51,7 @@ class coffeeScripts.Views.PlayView extends Backbone.View
     if PlayView.timer?
       clearInterval(PlayView.timer)
       @script.stop()
-    
+
     minutesEl = $('#minutes-time')
     secondsEl = $('#seconds-time')
 
@@ -77,6 +81,10 @@ class coffeeScripts.Views.PlayView extends Backbone.View
     $('#minutes-time').html("#{finalMinutes}")
     $('#seconds-time').html("#{finalSeconds}")
     clearInterval(PlayView.timer)
+
+  onClose: ->
+    clearInterval(PlayView.timer)
+    @script.stop()
 
   toList: (scene) ->
     return '' unless scene

@@ -3,9 +3,10 @@ window.coffeeScripts =
   Collections: {}
   Views: {}
   Routers: {}
+  Helpers: {}
   init: ->
     'use strict'
-    @router = new @Routers.DirectorRouter()
+    @router = new @Routers.DirectorRouter(appView: new @Views.AppView())
     Backbone.history.start({ pushState: true })
 
 $ ->
